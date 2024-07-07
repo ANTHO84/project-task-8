@@ -5,7 +5,7 @@ class WebRTCService {
     return await navigator.mediaDevices.enumerateDevices();
   }
 
-  Future<MediaStream> getUserMedia(Map<String, dynamic> mediaConstraints) async {
-    return await navigator.mediaDevices.getUserMedia(mediaConstraints);
+  Future<MediaStream> getUserMedia(Map<String, dynamic> constraints) async {
+    return await navigator.mediaDevices.getUserMedia(constraints);
   }
 }

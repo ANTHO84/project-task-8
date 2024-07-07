@@ -48,7 +48,7 @@ class HomePage extends StatelessWidget {
                           onChanged: (String? value) {
                             mediaProvider.selectVideoDevice(value);
                           },
-                          hint: Text('Chọn thiết bị camera'),
+                          hint: Text('Chọn thiết bị camera'), 
                         ),
                         DropdownButton<String>(
                           value: mediaProvider.selectedAudioDeviceId,

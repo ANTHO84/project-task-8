@@ -12,6 +12,7 @@ class MediaProvider extends ChangeNotifier {
   List<MediaDeviceInfo> _mediaDevices = [];
   String? _selectedVideoDeviceId;
   String? _selectedAudioDeviceId;
+  int _participantsCount = 1;
 
   MediaProvider() {
     _initializeRenderers();
@@ -28,6 +29,7 @@ class MediaProvider extends ChangeNotifier {
       _mediaDevices.where((device) => device.kind == 'audioinput').toList();
   String? get selectedVideoDeviceId => _selectedVideoDeviceId;
   String? get selectedAudioDeviceId => _selectedAudioDeviceId;
+  int get participantsCount => _participantsCount;
 
   Future<void> _initializeRenderers() async {
     await _localRenderer.initialize();
@@ -74,5 +76,10 @@ class MediaProvider extends ChangeNotifier {
   void toggleCamera() {
     _isFrontCamera = !_isFrontCamera;
     _getUserMedia();
+  }
+
+  void addParticipant() {
+    _participantsCount++;
+    notifyListeners();
   }
 }
